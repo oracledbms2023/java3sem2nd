@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<br>
+    <a href="#1"> link 1 </a></br>
+    <a href="#2"> link 2 </a></br>
+    <a href="#3"> link 3 </a></br>
+    <a href="#4"> link 4 </a></br>
+    <a href="#5"> link 5 </a></br>
+    <h4 id="1"> lab 6 </h4>
+    <pre>
+    abstract class A
+{
+    abstract void call();
+}
+class B extends A
+{
+    public void call() {
+    System.out.println("call me from B");
+}
+    public static void main(String args[])
+    {
+        B b=new B();
+        b.call();
+    }
+}
+</pre>
+
+    <h4 id="2"> lab 7 </h4>
+    <pre>
+package com.exaample;
+import java.io.*;
+class Area {
+    public static double circleArea(double r){
+        return Math.PI*r*r ;
+    }
+    public static double squareArea(double side){
+        return side*side ;
+    }
+    public static double rectArea(double width, double height){
+        return width*height ;
+    }
+    public static double triArea(double base, double height){
+        return 0.5*base*height ;
+    }
+    public static String readLine() {
+        String input = " ";
+        BufferedReader in = new BufferedReader(new
+                InputStreamReader(System.in)); try{
+            input = in.readLine();
+        }
+        catch(Exception e){
+            System.out.println("Error10" +e);
+        } return
+                input;
+    }
+    public static void main(String[] args){
+        System.out.println("Enter the radius ");
+        Double radius = Double.parseDouble(readLine());
+        System.out.println("Area of Circle = "+circleArea(radius)) ;
+        System.out.println("Enter the side");
+        Double side = Double.parseDouble(readLine());
+        System.out.println("Area of Square = "+squareArea(side)) ;
+
+        System.out.println("Enter the Width");
+        Double width = Double.parseDouble(readLine());
+        System.out.println("Enter the height ") ;
+        Double height = Double.parseDouble(readLine());
+        System.out.println("Area of Rectangle = "+rectArea(width,height));
+        System.out.println("Enter the base ") ;
+        Double base = Double.parseDouble(readLine());
+        System.out.println("Enter the height ") ;
+        Double height1 = Double.parseDouble(readLine());
+        System.out.println("Area of Triangle = "+triArea(base,height1));
+    }
+}
+</pre>
+
+    <h4 id="3"> lab 8 </h4>
+    <pre>
+    public class Box { 
+        int length, breadth, height;
+        Box() {
+            length = breadth = height = 2;
+            System.out.println("Initialized with default constructor");
+        }
+        Box(int l, int b){
+            length= l;
+            breadth= b ;
+            height = 2 ;
+            System.out.println("Initialized with parameterized constructor having 2 params ");
+        } 
+        Box(int l, int b, int h){ 
+            length= l;
+            breadth= b ;
+            height = h;
+                System.out.println("Initialized with parameterized constructor having 3 params ");
+        } 
+        public int getVolume() {
+            return length*breadth*height;
+        }
+        public static void main(String ars[]){
+                    Box box1 = new Box();
+                    System.out.println("The volume of Box1 is : " +box1.getVolume());
+                    Box box2 = new Box(10,20);
+                    System.out.println("The volume of Box2 is : " +box2.getVolume());
+                    Box box3 = new Box(10,20,30);
+                    System.out.println("The volume of Box3 is : " +box3.getVolume());
+        }
+    }
+</pre>
+
+    <h4 id="4"> lab 9 </h4>
+    <pre>
+package com.company;
+abstract class Department {
+    double salary,bonus,totalsalary;
+    public abstract void calBonus(double salary);
+    public void displayTotalSalary(String dept){
+    System.out.println(dept+"\t"+salary+"\t\t" +bonus+"\t" +totalsalary);
+}
+}
+class Accounts extends Department{
+    public void calBonus(double sal) {
+        salary =sal;
+        bonus = sal*0.2;
+        totalsalary = salary+bonus;
+}
+}
+class Sales extends Department{
+    public void calBonus(double sal){
+        salary =sal;
+        bonus = sal*0.3;
+        totalsalary = salary+bonus;
+    }
+}
+public class BonusCalculate {
+    public static void main(String ars[]) {
+        Department acc = new Accounts();
+        Department sales = new Sales();
+        acc.calBonus(10000);
+        sales.calBonus(20000);
+        System.out.println("Department \t Basic Salary \t Bonus \t TotalSalary ");
+        System.out.println(" ");
+        acc.displayTotalSalary("Accounts Dept");
+        sales.displayTotalSalary("Sales Dept ");
+        System.out.println(" ");
+    }
+}
+
+
+</pre>
+
+    <h4 id="5"> lab 10 </h4>
+    <pre>
+//package com.company;
+class A extends Thread {
+    public void run(){
+        System.out.println("Thread A started ");
+        for(int i=1;i lesserthan symbol  5;i++) {
+            System.out.println("Thread A :i=" + i);
+        }
+        System.out.println("Exit from Thread A ");
+    }
+}
+class B extends Thread { 
+    public void run(){
+        System.out.println("Thread B started ");
+        for(int i=1;i lesserthan symbol 5;i++) {
+            System.out.println("Thread B :i=" + i);
+        }
+        System.out.println("Exit from Thread B ");
+}
+}
+class C extends Thread { 
+    public void run(){
+        System.out.println("Thread C started ");
+        for(int i=1;i lesserthan symbol 5;i++) {
+            System.out.println("Thread C :i=" + i);
+        }
+        System.out.println("Exit from Thread C ");
+}
+}
+class ThreadPriority{ 
+    public static void main(String[] args){
+        A threadA = new A();
+        B threadB = new B(); 
+        C threadC = new C();
+        threadA.setPriority(Thread.NORM_PRIORITY);
+        threadB.setPriority(Thread.MAX_PRIORITY);
+        threadC.setPriority(Thread.MIN_PRIORITY);
+        System.out.println("Start Thread A");
+        threadA.start();
+        System.out.println("Start Thread B");
+        threadB.start(); 
+        System.out.println("Start Thread C");
+        threadC.start(); 
+        System.out.println("End of main Thread ");
+}
+} 
+
+</pre>
+
+</body>
+
+</html>
